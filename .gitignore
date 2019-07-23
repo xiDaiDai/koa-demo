@@ -1,0 +1,7 @@
+/node_modules/
+.idea/
+package-lock.json
+*.lock
+/.project
+config_xsw.js
+config_zy.js
