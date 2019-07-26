@@ -1,4 +1,6 @@
 const router = require('koa-router')()
+const BidController = require('../controller/bid');
+
 
 router.get('/', async (ctx, next) => {
   await ctx.render('index', {
@@ -15,5 +17,12 @@ router.get('/json', async (ctx, next) => {
     title: 'koa2 json'
   }
 })
+
+router.get('/spiderAndSave',BidController.spiderAndSave);
+
+router.get('/bid/copy',BidController.save);
+
+router.get('/bid/query',BidController.query);
+
 
 module.exports = router
