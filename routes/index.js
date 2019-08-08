@@ -18,11 +18,9 @@ router.get('/json', async (ctx, next) => {
   }
 })
 
-router.get('/spiderAndSave',BidController.spiderAndSave);
+router.get('/spiderAndSave', BidController.spiderAndSave)
 
-router.get('/bid/copy',BidController.save);
-
-router.get('/bid/query',BidController.query);
+router.get('/query',BidController.query);
 
 
 module.exports = router

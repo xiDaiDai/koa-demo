@@ -2,27 +2,15 @@ const BidModel = require("../modules/bid");
 
 class BidController {
 
-    /**
-     * 创建
-     * @param ctx
-     * @returns {Promise.<void>}
-     */
-    static async save(ctx){
-
-        let pageIndex = parseInt(ctx.query.pageIndex||1);
-        await BidModel.save(pageIndex);
-        ctx.body = 'done'
-
-    }
 
     static async spiderAndSave(ctx){
-
-        for(let i=1 ; i<100 ; i++){
-            await BidModel.save(i);
+        let data = await BidModel.spiderAndSave();
+        ctx.response.status = 200;
+        ctx.body = {
+            code: 200,
+            msg: '抓取成功',
+            data
         }
-
-        ctx.body = 'done'
-
     }
 
     static async query(ctx){
